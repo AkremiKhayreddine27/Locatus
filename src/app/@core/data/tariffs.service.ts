@@ -49,7 +49,7 @@ export class TariffsService {
                 {
                     id: 1,
                     title: 'Standard',
-                    amount: 80,
+                    amount: 110,
                     startDate: new Date(),
                     endDate: new Date(),
                     minDuration: 7
@@ -57,7 +57,7 @@ export class TariffsService {
                 {
                     id: 2,
                     title: 'Haute',
-                    amount: 100,
+                    amount: 130,
                     startDate: new Date(),
                     endDate: new Date(),
                     minDuration: 7
@@ -65,7 +65,7 @@ export class TariffsService {
                 {
                     id: 3,
                     title: 'Moyenne',
-                    amount: 90,
+                    amount: 120,
                     startDate: new Date(),
                     endDate: new Date(),
                     minDuration: 7
@@ -73,7 +73,7 @@ export class TariffsService {
                 {
                     id: 4,
                     title: 'Basse',
-                    amount: 120,
+                    amount: 100,
                     startDate: new Date(),
                     endDate: new Date(),
                     minDuration: 7
@@ -111,7 +111,7 @@ export class TariffsService {
                 {
                     id: 4,
                     title: 'Basse',
-                    amount: 120,
+                    amount: 70,
                     startDate: new Date(),
                     endDate: new Date(),
                     minDuration: 7
@@ -125,7 +125,7 @@ export class TariffsService {
                 {
                     id: 1,
                     title: 'Standard',
-                    amount: 80,
+                    amount: 70,
                     startDate: new Date(),
                     endDate: new Date(),
                     minDuration: 7
@@ -133,7 +133,7 @@ export class TariffsService {
                 {
                     id: 2,
                     title: 'Haute',
-                    amount: 100,
+                    amount: 90,
                     startDate: new Date(),
                     endDate: new Date(),
                     minDuration: 7
@@ -141,7 +141,7 @@ export class TariffsService {
                 {
                     id: 3,
                     title: 'Moyenne',
-                    amount: 90,
+                    amount: 80,
                     startDate: new Date(),
                     endDate: new Date(),
                     minDuration: 7
@@ -149,7 +149,7 @@ export class TariffsService {
                 {
                     id: 4,
                     title: 'Basse',
-                    amount: 120,
+                    amount: 60,
                     startDate: new Date(),
                     endDate: new Date(),
                     minDuration: 7
