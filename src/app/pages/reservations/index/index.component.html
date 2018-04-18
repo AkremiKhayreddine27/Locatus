@@ -1,0 +1,52 @@
+<nb-card>
+  <nb-card-header class="d-flex p-0 justify-content-between align-items-center flex-wrap">
+    <span *ngIf="!isSearching" class="d-flex align-items-center pl-2 m-0">
+      <i class="lnr lnr-clock mr-2"></i>Réservations
+    </span>
+    <card-header-actions [actions]="headerActions" (dropdownItemEvent)="handleDropdownEvent($event)" (actionEvent)="handleHeaderEvent($event)"
+      *ngIf="!isSearching">
+    </card-header-actions>
+    <card-header-search class="w-100" [source]="source" [fields]="searchFields" (closeSearch)="isSearching = false" [isSearching]="isSearching"
+      *ngIf="isSearching"></card-header-search>
+  </nb-card-header>
+  <nb-card-body class="p-0">
+    <card-mobile-header-actions [actions]="headerActions" (actionEvent)="handleHeaderEvent($event)"></card-mobile-header-actions>
+    <div [ngbCollapse]="isFilterCollapsed">
+      <filters></filters>
+    </div>
+    <!-- Desktop -->
+    <div class="d-none d-md-block p-3 border-radius" *ngIf="data.length > 0">
+      <app-reservation-header></app-reservation-header>
+      <app-reservation *ngFor="let reservation of data" [reservation]="reservation"></app-reservation>
+    </div>
+    <div class="row m-0" *ngIf="currentProperty && currentProperty.reservations.length === 0">
+      <div class="col-12 p-4">
+        <ngx-alert (actionClicked)="openDialog($event.action);" [actions]="[{ type: 'modal', url: 'create', text: 'Ajouter une réservation' },{ type: 'modal', url: 'import', text: 'Importer vos réservations'}]"
+          message="Le bien sélectionné n'a aucune réservation"></ngx-alert>
+      </div>
+    </div>
+    <div class="row m-0" *ngIf="currentProperty && currentProperty.reservations.length > 0 && data.length === 0">
+      <div class="col-12 p-4">
+        <ngx-alert (actionClicked)="openDialog($event.action);" message="aucune réservation"></ngx-alert>
+      </div>
+    </div>
+    <div class="row m-0" *ngIf="!currentProperty && propertyService.properties.length > 0">
+      <div class="col-12 p-4">
+        <ngx-alert message="Choisir un bien"></ngx-alert>
+      </div>
+    </div>
+    <div class="row m-0" *ngIf="!currentProperty && propertyService.properties.length === 0">
+      <div class="col-12 p-4">
+        <ngx-alert [actions]="[{ type: 'link', url: '/pages/properties/create', text: 'Créer un bien' }]" message="Créer un bien"></ngx-alert>
+      </div>
+    </div>
+    <!-- end desktop -->
+
+    <!-- Mobile -->
+    <div class="border-radius d-md-none d-lg-none d-xl-none" *ngIf="!isGrid">
+      <app-mobile-reservation-header></app-mobile-reservation-header>
+      <app-mobile-reservation *ngFor="let reservation of data" [reservation]="reservation"></app-mobile-reservation>
+    </div>
+    <!-- end mobile -->
+  </nb-card-body>
+</nb-card>

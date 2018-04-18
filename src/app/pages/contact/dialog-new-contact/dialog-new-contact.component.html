@@ -1,0 +1,121 @@
+<form (ngSubmit)="save()" #form="ngForm">
+  <div class="modal-header">
+    <h4 class="modal-title" i18n>Ajouter un Contact</h4>
+    <button type="button" (click)="close()" class="close" aria-label="Close">
+      <i class="nb-close"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div *ngIf="!contact" class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <ngx-select [elements]="types" (selectChanged)="setType($event.element);"></ngx-select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="firstname" class="col-form-label">Nom</label>
+          <div class="input-group input-group-sm">
+            <input id="firstname" type="text" class="form-control" [(ngModel)]="newContact.firstname" #firstname="ngModel" name="firstname"
+              placeholder="Nom" required="true" [minlength]="3" [maxlength]="50" [class.form-control-danger]="firstname.invalid && firstname.touched">
+          </div>
+          <small class="form-text error" *ngIf="firstname.invalid && firstname.touched && firstname.errors?.required">
+            Le Nom est requis !
+          </small>
+          <small class="form-text error" *ngIf="firstname.invalid && firstname.touched && firstname.errors?.minlength">
+            Le Nom doit contenir au moin 3 caractères !
+          </small>
+          <small class="form-text error" *ngIf="firstname.invalid && firstname.touched && firstname.errors?.maxlength">
+            Le Nom ne doit pas dépasser 50 caractères !
+          </small>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="lastname" class="col-form-label">Prénom</label>
+          <div class="input-group input-group-sm">
+            <input id="lastname" type="text" class="form-control" [(ngModel)]="newContact.lastname" #lastname="ngModel" name="lastname"
+              placeholder="Prénom" required="true" [minlength]="3" [maxlength]="50" [class.form-control-danger]="lastname.invalid && lastname.touched">
+          </div>
+          <small class="form-text error" *ngIf="lastname.invalid && lastname.touched && lastname.errors?.required">
+            Le Prénom est requis !
+          </small>
+          <small class="form-text error" *ngIf="lastname.invalid && lastname.touched && lastname.errors?.minlength">
+            Le Prénom doit contenir au moin 3 caractères !
+          </small>
+          <small class="form-text error" *ngIf="lastname.invalid && lastname.touched && lastname.errors?.maxlength">
+            Le Prénom ne doit pas dépasser 50 caractères !
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="phone" class="col-form-label">Numéro de Téléphone</label>
+          <div class="input-group input-group-sm">
+            <input id="phone" type="text" class="form-control" [(ngModel)]="newContact.phone" #phone="ngModel" name="phone" placeholder="Numéro de Téléphone">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="address" class="col-form-label">Addresse</label>
+          <div class="input-group input-group-sm">
+            <input id="address" type="text" class="form-control" [(ngModel)]="newContact.location.address" #address="ngModel" name="address"
+              placeholder="Addresse">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="postcode" class="col-form-label">Code Postal</label>
+          <div class="input-group input-group-sm">
+            <input id="postcode" type="text" [(ngModel)]="newContact.location.postcode" #postcode="ngModel" name="postCode" class="form-control"
+              placeholder="Code postal">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="city" class="col-form-label">Ville</label>
+          <div class="input-group input-group-sm">
+            <input id="city" type="text" [(ngModel)]="newContact.location.city" #city="ngModel" name="city" class="form-control" placeholder="Ville">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="state" class="col-form-label">Etat</label>
+          <div class="input-group input-group-sm">
+            <input id="state" type="text" [(ngModel)]="newContact.location.state" #state="ngModel" name="state" class="form-control"
+              placeholder="Etat">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="country" class="col-form-label">Pays</label>
+          <div class="input-group input-group-sm">
+            <input id="country" type="text" [(ngModel)]="newContact.location.country" #country="ngModel" name="country" class="form-control"
+              placeholder="Pays">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button [disabled]="submitted || !form.valid" (click)="save()" type="submit" class="btn btn-sm btn-success">
+      <i class="fa fa-save mr-1"></i>
+      <span i18n>Sauvegarder</span>
+    </button>
+  </div>
+</form>

@@ -1,0 +1,19 @@
+.dropdown .dropdown-menu {
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100% !important;
+    z-index: 1000;
+    .dropdown-item {
+        width: 100%;
+        overflow: hidden;
+        cursor: pointer;
+        text-overflow: ellipsis;
+    }
+} 
+
+.current-element {
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    padding: 0 !important;
+}

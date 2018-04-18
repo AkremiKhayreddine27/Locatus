@@ -1,0 +1,17 @@
+<div class="border-bottom d-flex pt-2 pb-2">
+  <div class="col-4 p-1 pl-2 align-items-center text-muted d-flex">
+    <span class="text-secondary mr-1">Property</span>
+    <i *ngIf="isVisitUp" (click)="onSortVisit('asc');isVisitUp = !isVisitUp" class="nb-arrow-up sort small"></i>
+    <i *ngIf="!isVisitUp" (click)="onSortVisit('desc');isVisitUp = !isVisitUp" class="nb-arrow-down sort small"></i>
+  </div>
+  <div class="col-5 p-0 d-flex align-items-center text-muted d-flex">
+    <span class="text-secondary mr-1">Reservation</span>
+    <i *ngIf="isPaymentUp" (click)="onSortPaymentStatus('asc');isPaymentUp = !isPaymentUp" class="nb-arrow-up sort small"></i>
+    <i *ngIf="!isPaymentUp" (click)="onSortPaymentStatus('desc');isPaymentUp = !isPaymentUp" class="nb-arrow-down sort small"></i>
+  </div>
+  <div class="col-3 p-1 d-flex align-items-center text-muted d-flex">
+    <span class="text-secondary mr-1">Payment</span>
+    <i *ngIf="isStatusUp" (click)="onSortStatus('asc');isStatusUp = !isStatusUp" class="nb-arrow-up sort small"></i>
+    <i *ngIf="!isStatusUp" (click)="onSortStatus('desc');isStatusUp = !isStatusUp" class="nb-arrow-down sort small"></i>
+  </div>
+</div>

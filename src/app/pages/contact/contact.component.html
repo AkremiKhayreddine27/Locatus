@@ -1,0 +1,74 @@
+<nb-card>
+  <nb-card-header class="d-flex align-items-center justify-content-between">
+    <span class="d-flex align-items-center">
+      <i class="ion-ios-people-outline mr-2"></i>
+      Contacts
+    </span>
+    <card-header-actions [actions]="headerActions" (actionEvent)="handleHeaderEvent($event)">
+    </card-header-actions>
+  </nb-card-header>
+  <nb-card-body class="p-0">
+    <ngb-tabset justify="justified">
+      <ngb-tab title="Locataires">
+        <ng-template ngbTabContent>
+          <div class="contact" *ngFor="let user of lodgers">
+            <div class="user-container">
+              <div class="user-img">
+                <img [src]="user.picture ? user.picture : 'assets/images/user-avatar.png'" />
+              </div>
+              <div class="user-infos ml-2">
+                <span class="username pb-2">{{ user.firstname }} {{ user.lastname }}</span>
+                <span class="user-phone small">{{ user.phone }}</span>
+                <span class="user-address small">
+                  {{ user.location.address }}, {{ user.location.city }}, {{ user.location.state }}, {{ user.location.postcode }}, {{ user.location.country
+                  }}
+                </span>
+              </div>
+            </div>
+            <i (click)="edit(user)" class="nb-compose"></i>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Propriétaires">
+        <ng-template ngbTabContent>
+          <div class="contact" *ngFor="let user of owners">
+            <div class="user-container">
+              <div class="user-img">
+                <img [src]="user.picture ? user.picture : 'assets/images/user-avatar.png'" />
+              </div>
+              <div class="user-infos ml-2">
+                <span class="username pb-2">{{ user.firstname }} {{ user.lastname }}</span>
+                <span class="user-phone small">{{ user.phone }}</span>
+                <span class="user-address small">
+                  {{ user.location.address }}, {{ user.location.city }}, {{ user.location.state }}, {{ user.location.postcode }}, {{ user.location.country
+                  }}
+                </span>
+              </div>
+            </div>
+            <i (click)="edit(user)" class="nb-compose"></i>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Prestataires de services">
+        <ng-template ngbTabContent>
+          <div class="contact" *ngFor="let user of serviceProviders">
+            <div class="user-container">
+              <div class="user-img">
+                <img [src]="user.picture ? user.picture : 'assets/images/user-avatar.png'" />
+              </div>
+              <div class="user-infos ml-2">
+                <span class="username pb-2">{{ user.firstname }} {{ user.lastname }}</span>
+                <span class="user-phone small">{{ user.phone }}</span>
+                <span class="user-address small">
+                  {{ user.location.address }}, {{ user.location.city }}, {{ user.location.state }}, {{ user.location.postcode }}, {{ user.location.country
+                  }}
+                </span>
+              </div>
+            </div>
+            <i (click)="edit(user)" class="nb-compose"></i>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </nb-card-body>
+</nb-card>

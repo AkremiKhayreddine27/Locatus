@@ -1,0 +1,39 @@
+<nb-card *ngIf="data.length > 0">
+  <nb-card-header class="d-flex p-0 justify-content-between align-items-center flex-wrap">
+    <span *ngIf="!isSearching" class="d-flex align-items-center pl-2 m-0">
+      <i class="nb-gear"></i>Service
+    </span>
+    <card-header-actions [actions]="headerActions" (actionEvent)="handleHeaderEvent($event)" *ngIf="!isSearching">
+    </card-header-actions>
+    <card-header-search class="w-100" (searchEvent)="isSearching = false" [isSearching]="isSearching" *ngIf="isSearching"></card-header-search>
+  </nb-card-header>
+  <nb-card-body class="p-0">
+
+    <div class="d-none d-md-block p-3 border-radius" *ngIf="!isGrid">
+      <app-service-header></app-service-header>
+      <app-service *ngFor="let service of data" [service]="service"></app-service>
+    </div>
+
+    <div class="border-radius d-md-none d-lg-none d-xl-none" *ngIf="!isGrid">
+      <app-mobile-service-header></app-mobile-service-header>
+      <app-mobile-service *ngFor="let service of data" [service]="service"></app-mobile-service>
+    </div>
+
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf="data.length === 0">
+  <nb-card-header class="d-flex p-0 justify-content-between align-items-center flex-wrap">
+    <span *ngIf="!isSearching" class="d-flex align-items-center pl-2 m-0">
+      <i class="nb-gear"></i>Service
+    </span>
+  </nb-card-header>
+  <nb-card-body class="p-0">
+    <div class="row m-0">
+      <div class="col-12 p-4">
+        <ngx-alert (actionClicked)="openDialog($event.action);" [actions]="[{ type: 'modal', url: 'create', text: 'Ajouter une service' }]"
+          message="Le bien sélectionné n'a aucune service"></ngx-alert>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

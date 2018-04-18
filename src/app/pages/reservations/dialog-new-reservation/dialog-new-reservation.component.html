@@ -1,0 +1,88 @@
+<form (ngSubmit)="submit(form)" [formGroup]="form">
+  <div class="modal-header">
+    <h4 class="modal-title" i18n>New Reservation</h4>
+    <button type="button" (click)="close()" class="close" aria-label="Close">
+      <i class="nb-close"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row d-flex align-items-center">
+      <div class="form-group col-md-4">
+        <div class="input-group">
+          <input formControlName="startDate" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #startDate="ngbDatepicker">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary border-left-0 p-3 pl-3 pr-3" (click)="startDate.toggle()" type="button">
+              <i class="fa fa-calendar"></i>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div class="form-group col-md-2 pt-2">
+        <ngx-select [elements]="hours" default="Heure"></ngx-select>
+      </div>
+      <div class="form-group col-md-4">
+        <div class="input-group">
+          <input formControlName="endDate" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #endDate="ngbDatepicker">
+          <div class="input-group-btn">
+            <button class="btn btn-secondary border-left-0 p-3 pl-3 pr-3" (click)="endDate.toggle()" type="button">
+              <i class="fa fa-calendar"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-md-2 pt-2">
+        <ngx-select [elements]="hours" default="Heure"></ngx-select>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="form-group col-md-6">
+        <div class="input-group">
+          <input formControlName="firstName" type="text" placeholder="First Name" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <div class="input-group">
+          <input formControlName="lastName" type="text" placeholder="Last Name" class="form-control" />
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="form-group col-md-6">
+        <div class="input-group">
+          <input formControlName="phone" type="text" placeholder="Telephone" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <div class="input-group">
+          <input formControlName="email" type="text" placeholder="Address Email" class="form-control" />
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="form-group col-md-4">
+        <div class="input-group d-flex justify-content-between">
+          <label class="d-flex align-items-center" for="">adults</label>
+          <app-nbr-input [number]="0"></app-nbr-input>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <div class="input-group d-flex justify-content-between">
+          <label class="d-flex align-items-center" for="">children</label>
+          <app-nbr-input [number]="0"></app-nbr-input>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <div class="input-group d-flex justify-content-between">
+          <label class="d-flex align-items-center" for="">pets</label>
+          <app-nbr-input [number]="0"></app-nbr-input>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-sm btn-success">
+      <i class="fa fa-save mr-1"></i>
+      <span i18n>Add</span>
+    </button>
+  </div>
+</form>

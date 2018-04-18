@@ -1,0 +1,10 @@
+<div class="alert d-flex flex-wrap justify-content-center align-items-center bg-transparent alert-danger">
+  <span class="text-center">{{ message }}</span>
+  <div *ngIf="actions" class="w-100 d-flex flex-wrap justify-content-center pt-2">
+    <div *ngFor="let action of actions">
+      <a *ngIf="action.type === 'link'" [routerLink]="action.url" class="btn btn-tn btn-secondary m-2"> {{ action.text }}</a>
+      <a *ngIf="action.type === 'modal'" (click)="actionClicked.emit({ action : action.url })" class="btn btn-tn btn-secondary m-2">
+      {{ action.text }}</a> 
+    </div>
+  </div>
+</div>

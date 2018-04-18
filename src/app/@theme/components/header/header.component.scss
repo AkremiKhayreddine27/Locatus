@@ -1,0 +1,219 @@
+@import '../../styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+
+@include nb-install-component() {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .username {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    border: 2px solid nb-theme(color-success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: nb-theme(user-fg);
+    font-size: nb-theme(user-font-size);
+  }
+
+  .btn {
+    cursor: pointer;
+  }
+
+  .dropdown-menu::before {
+    position: absolute;
+    top: -8px;
+    left: 87%;
+    display: inline-block;
+    border-right: 16px solid transparent;
+    border-bottom: 10px solid nb-theme(color-fg-highlight);
+    border-left: 16px solid transparent;
+    border-bottom-color: nb-theme(color-fg-highlight);
+    content: '';
+  }
+  .dropdown-menu {
+    width: 280px !important;
+    top: 50px !important;
+    .dropdown-item {
+      cursor: pointer;
+    }
+  }
+
+  .user-menu-header {
+    padding: 20px 20px;
+    background-color: nb-theme(color-fg-highlight);
+    color: nb-theme(color-white) !important;
+    .user-card {
+      display: flex;
+      .user-picture {
+        display: table-cell;
+        text-align: right;
+        padding: 0 5px 0 0;
+        vertical-align: middle;
+        height: 2.5rem;
+        width: 2.5rem;
+        img {
+          max-width: 2.5rem !important;
+          margin: 0 !important;
+          border-radius: 100%;
+        }
+      }
+      .user-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding: 0 0 0 15px;
+      }
+    }
+  }
+
+  .left {
+    display: flex;
+    width: 100%;
+    order: 0;
+    flex-direction: row;
+  }
+  .right {
+    order: 1;
+    flex-direction: row-reverse;
+  }
+
+  .logo-containter {
+    display: flex;
+    align-items: center;
+  }
+
+  .control-item {
+    display: block;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .navigation {
+      margin-left: -0.75rem;
+      padding-right: 0.5rem;
+      font-size: 2.5rem;
+      text-decoration: none;
+
+      i {
+        display: block;
+      }
+
+    }
+
+    .logo {
+      padding: 0 1.75rem;
+      font-size: 1.75rem;
+      font-weight: nb-theme(font-weight-bolder);
+      border-left: 1px solid nb-theme(separator);
+      white-space: nowrap;
+
+      span {
+        font-weight: nb-theme(font-weight-normal);
+      }
+    }
+  }
+
+  .toggle-layout /deep/ a {
+    display: block;
+    text-decoration: none;
+    line-height: 1;
+
+    i {
+      color: nb-theme(color-fg-highlight);
+      font-size: 2.25rem;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+
+    nb-action:not(.toggle-layout) {
+      border: none;
+    }
+
+    .control-item {
+      display: none;
+    }
+
+    .toggle-layout {
+      padding: 0;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+
+    nb-user /deep/ .user-name {
+      display: none;
+    }
+
+    nb-user /deep/ .user-context-menu {
+      position: absolute;
+      transform: translate(0, 0);
+      left: -100px !important;
+      z-index: 1000;
+      top: calc(100% + 5px);
+      background-clip: padding-box;
+      border-radius: 5px;
+      font-size: 0.875rem;
+      line-height: 1.5rem;
+      ul li.arrow {
+        display: none !important;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+
+    .header-container {
+      margin-left: 0.2rem;
+      .logo {
+        font-size: 1.25rem;
+      }
+    }
+
+    .toggle-layout {
+      display: none;
+    }
+
+    nb-action:not(.toggle-layout) {
+      padding: 0;
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+
+    .header-container {
+      margin-left: 0rem;
+      .logo {
+        font-size: 1.25rem;
+      }
+    }
+
+    .dropdown-menu {
+      width: 280px !important;
+      top: 50px !important;
+      .dropdown-item {
+        cursor: pointer;
+      }
+    }
+    .logo {
+      padding: 0 1rem !important;
+    }
+    /*
+    .right /deep/ {
+      display: none;
+    }
+    */
+  }
+}
+
+
+

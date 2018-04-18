@@ -1,0 +1,92 @@
+<div class="border-bottom pb-2 d-flex">
+  <div class="col-4 p-0 pl-2 pt-3">
+    <span class="small">
+      {{ (service.property.title.length > 40) ? (service.property.title | slice:0:40)+'..' : (service.property.title) }}
+    </span>
+  </div>
+  <div [ngSwitch]="service.status" class="col-5 p-0 pt-3">
+    <div class="small mb-1">
+      {{ service.start | date:'dd MMM' }} - {{ service.end | date:'dd MMM yyyy' }}
+    </div>
+    <span class="small">{{ service.provider.firstname }} {{ service.provider.lastname }}</span>
+    <div class="small mt-1 mb-1">{{ service.provider.phone }}</div>
+    <div class="mb-2">
+      <span *ngSwitchCase="'paid'" class="badge badge-success p-1">
+        {{ service.status }}
+      </span>
+      <span *ngSwitchCase="'unpaid'" class="badge badge-danger p-1">
+        {{ service.status }}
+      </span>
+      <span *ngSwitchCase="'payé partiellement'" class="badge badge-secondary p-1">
+        {{ service.status }}
+      </span>
+    </div>
+  </div>
+  <div class="col-3 p-0 pt-3">
+    <div>
+      <span class="small" *ngIf="service.payements.length > 0">{{ service.payements[service.payements.length -1].amount }} $</span>
+    </div>
+    <div [ngSwitch]="service.paymentStatus">
+      <span *ngSwitchCase="'paid'" class="text-success small">{{ service.paymentStatus }}</span>
+      <span *ngSwitchCase="'unpaid'" class="text-danger small">{{ service.paymentStatus }}</span>
+    </div>
+    <div>
+      <a class="small text-muted d-flex align-items-center" (click)="isPaymentCollapsed = !isPaymentCollapsed">
+        payements
+        <i class="fa small fa-chevron-down ml-1"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div [ngbCollapse]="isPaymentCollapsed">
+  <div class="row m-0">
+    <div class="col-12 d-flex justify-content-between align-items-center p-0 pt-2 pb-2 pl-4">
+      <button (click)="openNewPayment()" class="btn btn-tn btn-success btn-square">
+        <i class="fa fa-plus"></i>
+      </button>
+      <button (click)="isPaymentCollapsed = !isPaymentCollapsed" class="btn bg-transparent border-0 text-success">
+        <i class="fa fa-chevron-up"></i>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="service.payements.length > 0" class="row m-0">
+    <div class="col-12 border-left border-right bg-grey">
+      <div class="row payements-header border-top border-bottom">
+        <div class="col small">
+          Payer
+        </div>
+        <div class="col small">
+          Payment
+        </div>
+        <div class="col small">
+          Method
+        </div>
+      </div>
+    </div>
+    <div *ngFor="let payment of service.payements" class="col-12 border-left border-right bg-grey">
+      <div class="row border-bottom pb-3 pt-3">
+        <div class="col">
+          <span class="small">{{ payment.payer.firstname }} {{ payment.payer.lastname }}</span>
+        </div>
+        <div class="col">
+          <span class="badge badge-info p-1">{{ payment.status }}</span>
+          <br/>
+          <span class="small">{{ payment.amount }} $</span>
+          <br/>
+          <span class="small">{{ payment.date | date:'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="col">
+          <span class="small">{{ payment.type }}</span>
+          <br/>
+          <span class="small">{{ payment.method }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="service.payements.length === 0" class="row m-0">
+    <div class="col-12 bg-grey">
+      <div class="alert text-danger" role="alert">no payements</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,647 @@
+// themes - our custom or/and out of the box themes
+@import 'themes';
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+// framework component themes (styles tied to theme variables)
+@import '~@nebular/theme/styles/globals';
+@import '~@nebular/auth/styles/all';
+@import '../components/auth/auth-block/auth-block.component.theme';
+@import '~linearicons/dist/web-font/style.css';
+
+// loading progress bar theme
+@import './pace.theme';
+
+// install the framework and custom global styles
+@include nb-install() {
+
+  // framework global styles
+  @include nb-theme-global();
+  @include nb-auth-block-theme();
+
+  // loading progress bar
+  @include ngx-pace-theme();
+
+  .cursor-pointer {
+    cursor: pointer !important;
+  } 
+
+  /**
+    Custom style
+  */
+
+  .btn-outline-secondary:hover, .btn-outline-secondary.active {
+    border-color: nb-theme(color-success) !important;
+    background-color: nb-theme(color-bg) !important;
+    cursor: pointer;
+  }
+
+
+
+  .dropdown-menu {
+    .dropdown-item:hover {
+      background-color: nb-theme(color-success) !important;
+      color: nb-theme(color-bg) !important;
+    }
+  }
+
+  .actions {
+    .action.active i{
+      color: nb-theme(color-success) !important;
+    }
+  }
+
+
+  *:focus, button:focus {
+    outline: 0 !important;
+    outline: none !important;
+  }
+
+  .badge {
+    font-size: 0.85rem;
+    font-weight: lighter;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    .modal-dialog {
+      position: relative;
+      width: 100% !important;
+      height: 100vh !important;
+      margin: 0;
+      pointer-events: none;
+    }
+  }
+
+  /*
+    Dropzone
+  */
+  dropzone>.dropzone.dz-wrapper {
+    overflow: visible;
+  }
+  dropzone>.dropzone.dz-wrapper {
+    position: relative;
+    overflow: hidden !important;
+    width: 100%;
+    min-height: 0;
+    max-height: 100%;
+    padding: 0;
+    border: none;
+    color: #666;
+    background: 0 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+  dropzone .dropzone.dz-wrapper .dz-message {
+    position: relative;
+    display: inline-block;
+    overflow: auto;
+    width: calc(100% - 16px);
+    min-width: calc(100% - 16px);
+    min-height: 40px;
+    max-width: calc(100% - 16px);
+    max-height: 100%;
+    margin: 10px !important;
+    border: 2px solid nb-theme(form-control-border-color) !important;
+    background-color: nb-theme(color-bg) !important;
+  }
+
+  dropzone .dropzone .dz-preview {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 !important;
+    min-height: 100px;
+    padding: 10px;
+    width: (100% / 3);
+  }
+  dropzone .dropzone .dz-preview .dz-image {
+    border-radius: 0 !important;
+    overflow: hidden;
+    width: 100% !important;
+    height: auto !important;
+    position: relative;
+    display: block;
+    z-index: 10;
+  }
+  /* Calendar */
+  /* Month */
+  .cal-month-view {
+    background-color: nb-theme(color-bg) !important;
+    .cal-cell-row:hover {
+      background-color: nb-theme(layout-bg) !important;
+    }
+    .cal-day-number {
+      color: nb-theme(card-fg-text) !important;
+    }
+    .cal-header .cal-cell {
+      color: nb-theme(card-fg-text) !important;
+    }
+  }
+  
+  .cal-month-view div, .calendar-week-view div {
+    border-color: nb-theme(separator) !important;
+  }
+
+  /* Week */
+
+.calendar-week-view {
+  background-color: nb-theme(color-bg) !important;
+  border: 1px solid nb-theme(separator) !important;
+  border-right: none !important;
+  .cal-week-day-headers {
+    background-color: nb-theme(color-bg) !important;
+  }
+  .cal-day-headers {
+    background-color: nb-theme(color-bg) !important;
+    border-top: none !important;
+    border-right: none !important;
+    .cal-header {
+      color: nb-theme(card-fg-text) !important;
+    }
+  }
+  .hour-segment-col {
+    background-color: nb-theme(color-bg) !important;
+    color: nb-theme(card-fg-text) !important;
+  }
+  .cal-week-container {
+    background-color: nb-theme(color-bg) !important;
+    height: 72vh;
+    overflow-y: scroll;
+  }
+  .hour-segments {
+    border-left: none !important;
+  }
+  .cal-events-row {
+    background-color: nb-theme(color-bg) !important;
+  }
+}
+  
+/* Day */
+
+.cal-day-view div {
+  border-color: nb-theme(separator) !important;
+}
+
+.cal-day-view {
+  border: 1px solid nb-theme(separator) !important;
+  background-color: nb-theme(color-bg) !important;
+  .cal-day-view-header {
+    border-top: none !important;
+  }
+  .cal-hour-segment {
+    border-left: none !important;
+    background-color: nb-theme(color-bg) !important;
+    .cal-time {
+      color: nb-theme(card-fg-text) !important;
+    }
+  }
+  .cal-after-hour-start .cal-time {
+    color: transparent !important;
+  }
+  .cal-hour-rows {
+    border-left: none !important;
+    background-color: nb-theme(color-bg) !important;
+    height: 72vh;
+  }
+}
+
+};
+
+.custom-select-sm {
+  width: 100% !important;
+  height: 36px !important;
+  border: 2px solid #DADFE6;
+}
+
+
+/* Calendar icon */
+.nb-theme-default nb-menu .menu-item .menu-icon.lnr, .nb-theme-cosmic nb-menu .menu-item .menu-icon.lnr {
+  font-size: 1.5rem !important;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nb-theme-default nb-menu .menu-item .menu-icon.ion-ios-pricetag-outline, .nb-theme-cosmic nb-menu .menu-item .menu-icon.ion-ios-pricetag-outline {
+  font-size: 1.6rem !important;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* dropdown cutom style */
+.dropdown-menu-right { 
+  right: 0 !important; 
+  left: auto !important; 
+}
+
+.nb-theme-default .dropdown .dropdown-menu, .nb-theme-default .dropup .dropdown-menu {
+  width: auto !important;
+  padding: 0 0 !important;
+  min-width: 100px;
+}
+
+.nb-theme-cosmic .dropdown .dropdown-menu, .nb-theme-cosmic .dropup .dropdown-menu {
+  width: auto !important;
+  padding: 0 0 !important;
+  min-width: 100px;
+}
+
+.nb-theme-default .dropdown:not(.btn-group) .dropdown-toggle::after, .nb-theme-default .dropup:not(.btn-group) .dropdown-toggle::after {
+  display: none;
+}
+
+.nb-theme-cosmic .dropdown:not(.btn-group) .dropdown-toggle::after, .nb-theme-cosmic .dropup:not(.btn-group) .dropdown-toggle::after {
+  display: none;
+}
+.nb-theme-default .dropdown {
+  border: none !important;
+  .dropdown-item {
+      color: #555555 !important;
+  }
+  .dropdown-menu {
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 16px;
+      background-color: white !important;
+      border-radius: 0 !important;
+  }
+}
+.nb-theme-cosmic .dropdown {
+  border: none !important;
+  .calendar-settings {
+      display: flex;
+      align-items: center;
+      font-size: 2rem !important;
+      cursor: pointer !important;
+      padding: 2px;
+  }
+  .dropdown-item {
+      color: white !important;
+  }
+  .dropdown-menu {
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 16px;
+      background-color: #3d3780 !important;
+      border-radius: 0 !important;
+  }
+}
+
+/**
+  DatePicker custom style
+*/
+ngb-datepicker {
+  border-radius: 0 !important;
+}
+.ngb-dp-months {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+.ngb-dp-month {
+    flex: 1;
+}
+.ngb-dp-month-name{
+  font-size: 14px !important;
+}
+
+.bg-light {
+    background-color: white !important;
+}
+
+.ngb-dp-navigation-select {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  flex: 1;
+  select {
+    background-color: transparent !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 2rem !important;
+    line-height: 1.25 !important;
+    width: auto !important;
+    border: none !important;
+    color: #8F8F8F !important;
+    -webkit-appearance: none !important;
+  }
+  select::-ms-expand {
+    display: none !important;
+  }
+}
+.ngb-dp-month {
+  width: 100%;
+}
+.ngb-dp-day {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ngb-dp-header {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.ngb-dp-arrow-btn {
+  width: 2rem !important;
+  height: 2rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% !important;
+  padding: 0 !important;
+}
+span.ngb-dp-navigation-chevron {
+  color: #8F8F8F !important;
+}
+.ngb-dp-arrow-btn:hover {
+  background-color: #f2f2f2;
+
+}
+.ngb-dp-day, .ngb-dp-weekday, .ngb-dp-week-number {
+  min-width: 2rem !important;
+  min-height: 2rem !important;
+}
+.ngb-dp-weekday[_ngcontent-c20] {
+  color: #555555 !important;
+}
+.ngb-dp-month:first-child .ngb-dp-week {
+  padding-left: .25rem !important;
+}
+.ngb-dp-month:last-child .ngb-dp-week {
+   padding-right: .25rem !important; 
+}
+
+.ngb-dp-header {
+  background-color: transparent !important;
+}
+
+.ngb-dp-weekdays {
+  background-color: transparent !important;
+  width: 100%;
+}
+.ngb-dp-weekday {
+  flex: 1;
+}
+
+.ngb-dp-arrow-btn {
+  color: #555555 !important;
+  cursor: pointer !important;
+}
+
+
+/* Modal */
+
+.modal-content {
+  border: none !important;
+}
+
+
+
+
+/* global styling */
+.leaflet-control-geosearch *,
+.leaflet-control-geosearch *:before,
+.leaflet-control-geosearch *:after {
+  box-sizing: border-box;
+}
+
+/* leaflet button styling */
+.leaflet-control-geosearch .leaflet-bar-part {
+  border-radius: 4px;
+  border-bottom: none;
+}
+
+.leaflet-control-geosearch a.leaflet-bar-part:before,
+.leaflet-control-geosearch a.leaflet-bar-part:after {
+  position: absolute;
+  display: block;
+  content: '';
+}
+
+/* magnifying glass */
+.leaflet-control-geosearch a.leaflet-bar-part:before {
+  top: 19px;
+  left: 16px;
+  width: 8px;
+  border-top: 2px solid #555;
+  transform: rotateZ(45deg);
+}
+
+.leaflet-control-geosearch a.leaflet-bar-part:after {
+  top: 6px;
+  left: 6px;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  border: 2px solid #555;
+}
+
+/* resets for pending and error icons */
+.leaflet-control-geosearch.error a.leaflet-bar-part:before,
+.leaflet-control-geosearch.pending a.leaflet-bar-part:before {
+  display: none;
+}
+
+.leaflet-control-geosearch.pending a.leaflet-bar-part:after,
+.leaflet-control-geosearch.error a.leaflet-bar-part:after {
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  border-radius: 50%;
+}
+
+/* pending icon */
+.leaflet-control-geosearch.pending a.leaflet-bar-part:after {
+  content: '';
+  border: 2px solid #555;
+  border-top: 2px solid #f3f3f3;
+  animation: spin 1s linear infinite;
+}
+
+/* error icon */
+.leaflet-control-geosearch.error a.leaflet-bar-part:after {
+  content: '!';
+  line-height: initial;
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+}
+
+/* search form styling */
+.leaflet-control-geosearch form {
+  display: none;
+  position: absolute;
+  top: -2px;
+  left: 28px;
+  background-color: #fff;
+  background-clip: padding-box;
+  z-index: -1;
+  height: auto;
+  margin: 0;
+  padding: 0 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.leaflet-control-geosearch.active form {
+  display: block;
+}
+
+.leaflet-control-geosearch form input {
+  min-width: 200px;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  height: 30px;
+  text-indent: 8px;
+}
+
+.leaflet-control-geosearch .results {
+  background: #fff;
+}
+
+.leaflet-control-geosearch .results > * {
+  line-height: 24px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leaflet-control-geosearch .results.active {
+  padding: 8px 0;
+  border-top: 1px solid #c6c6c6;
+}
+
+.leaflet-control-geosearch .results > .active,
+.leaflet-control-geosearch .results > :hover {
+  background-color: #f8f8f8;
+  border-color: #c6c6c6;
+  cursor: pointer;
+}
+
+/* add missing border to form */
+.leaflet-control-geosearch .results.active:after {
+  content: '';
+  display: block;
+  width: 0;
+  border-left: 2px solid rgba(0, 0, 0, .2);
+  position: absolute;
+  left: -2px;
+  bottom: -2px;
+  top: 30px;
+}
+
+/* animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.leaflet-top .leaflet-control-geosearch.bar,
+.leaflet-bottom .leaflet-control-geosearch.bar {
+  display: none;
+}
+
+.leaflet-control-geosearch.bar {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 400px;
+  margin: 10px auto 0;
+  cursor: auto;
+  z-index: 1000;
+}
+
+.leaflet-control-geosearch.bar form {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+.leaflet-control-geosearch.bar form input {
+  min-width: 100%;
+  width: 100%;
+}
+
+.leaflet-control-geosearch.bar .results.active:after {
+  opacity: .2;
+}
+
+.leaflet-right .leaflet-control-geosearch form {
+  right: 28px;
+  left: initial;
+  border-radius: 4px 0 0 4px;
+  border-left: inherit;
+  border-right: none;
+}
+
+.leaflet-control-geosearch a.reset {
+  color: black;
+  position: absolute;
+  line-height: 30px;
+  padding: 0 8px;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  border: none;
+}
+
+.leaflet-control-geosearch a.reset:hover {
+  background: #f5f5f5;
+}
+
+
+.leaflet-popup-content-wrapper {
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-radius: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+}
+
+.leaflet-div-icon {
+  border: none !important;
+  padding: 5px !important;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.4) !important;
+}
+
+/* Popup arrow */
+.leaflet-div-icon::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+calendar-month-cell.isToday {
+  background-color: transparent !important;
+  .cal-cell {
+    .cal-cell-top {
+      .cal-day-number {
+        background-color: #40dc7e !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white !important;
+      }
+    }
+  }
+}

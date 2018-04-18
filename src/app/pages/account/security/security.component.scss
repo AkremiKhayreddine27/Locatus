@@ -1,0 +1,20 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+    .btn {
+        height: 3.75rem;
+        padding-top: 0;
+        padding-bottom: 0;
+        border: 0;
+        box-shadow: nb-theme(shadow);
+        display: flex;
+        align-items: center;
+        i {
+            font-size: 1.5rem;
+        }
+    }
+    .btn:hover {
+        background-color: nb-theme(color-success) !important;
+        color: nb-theme(color-white);
+    }
+}

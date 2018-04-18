@@ -1,0 +1,40 @@
+@import '../../@theme/styles/themes';
+@import '~@nebular/theme/components/card/card.component.theme';
+@import '~@nebular/theme/styles/global/typography/typography';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+@include nb-install-component() {
+
+    .col-md-3 {
+        background-color: nb-theme(color-bg);
+        padding: 0;
+    }
+    .tariff-period-title {
+        height: 165px;
+    }
+    .current {   
+        z-index: 10;
+        margin: -10px -9px;
+        padding: 9px !important;
+        box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.08);
+        .tariff-period {
+            border-right: 1px solid nb-theme(border-color) !important;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        .col-md-3 {
+          padding: 0.75rem !important;
+          .tariff-period.border-right-0 {
+            border-right: 1px solid nb-theme(border-color) !important;
+          }
+        }
+        .current {
+            margin: 0;
+            box-shadow: none;
+            .tariff-period {
+                box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.08);
+            }
+        }
+    }
+}

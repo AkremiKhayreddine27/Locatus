@@ -1,0 +1,62 @@
+<nb-card>
+  <nb-card-header>Map</nb-card-header>
+  <nb-card-body>
+      <yaga-map
+        [zoom]="14"
+        [lng]="10.533571243286133"
+        [lat]="36.37153924584892"
+        (zoomChange)="zoomChange($event)"
+        >
+      <yaga-tile-layer [(url)]="tileLayerUrl"></yaga-tile-layer>
+      <yaga-zoom-control></yaga-zoom-control>
+      <yaga-scale-control></yaga-scale-control>
+      <!--
+        <yaga-marker
+        *ngFor="let event of events"
+        [lng]="event.location.lon"
+        [lat]="event.location.lat">
+          <yaga-icon 
+            [iconUrl]="iconUrl"
+            [iconSize]="iconSize"
+            [shadowUrl]="shadowUrl"
+            [shadowSize]="shadowSize">
+          </yaga-icon>
+            <yaga-popup>
+              <div class="card border-0">
+                    <img class="card-img-top" src="assets/images/kitten-default.png" alt="React Native UI Kitten">
+                    <div class="card-body"> 
+                        <div class="description">
+                          {{ event.title }}
+                        </div>
+                    </div>
+              </div>
+            </yaga-popup> 
+        </yaga-marker> 
+      -->
+        <yaga-marker
+          *ngFor="let event of events"
+          [lng]="event.location.longitude"
+          [lat]="event.location.latitude">
+            <yaga-div-icon
+              [iconSize]="divIconSize"
+              [iconAnchor]="nullIconSize"
+              [popupAnchor]="nullIconSize">
+              <p>{{ event.title }}</p>
+            </yaga-div-icon>
+            <yaga-popup>
+                <div class="card border-0">
+                    <img class="card-img-top" src="assets/images/kitten-default.png" alt="React Native UI Kitten">
+                    <div class="card-body">   
+                        <div class="description">
+                            {{ event.title }}
+                        </div>
+                        <div class="description">
+                            {{ event.location.address }}
+                        </div>
+                    </div>
+                </div>
+            </yaga-popup>  
+        </yaga-marker> 
+      </yaga-map>
+  </nb-card-body>
+</nb-card>

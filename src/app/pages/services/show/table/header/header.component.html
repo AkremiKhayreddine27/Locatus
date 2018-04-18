@@ -1,0 +1,28 @@
+<div class="border-bottom row pb-1">
+  <div class="col-3 d-flex align-items-center text-muted d-flex">
+    <span class="text-secondary mr-1">Property</span>
+    <i *ngIf="isTouristsUp" (click)="onSortTourists('asc');isTouristsUp = !isTouristsUp" class="nb-arrow-up sort small"></i>
+    <i *ngIf="!isTouristsUp" (click)="onSortTourists('desc');isTouristsUp = !isTouristsUp" class="nb-arrow-down sort small"></i>
+  </div>
+  <div class="col d-flex align-items-center text-muted d-flex">
+    <span class="text-secondary mr-1">Provider</span>
+    <i *ngIf="isVisitUp" (click)="onSortVisit('asc');isVisitUp = !isVisitUp" class="nb-arrow-up sort small"></i>
+    <i *ngIf="!isVisitUp" (click)="onSortVisit('desc');isVisitUp = !isVisitUp" class="nb-arrow-down sort small"></i>
+  </div>
+  <div class="col d-flex align-items-center text-muted d-flex">
+    <span class="text-secondary mr-1">Date</span>
+    <i *ngIf="isPaymentUp" (click)="onSortPaymentStatus('asc');isPaymentUp = !isPaymentUp" class="nb-arrow-up sort small"></i>
+    <i *ngIf="!isPaymentUp" (click)="onSortPaymentStatus('desc');isPaymentUp = !isPaymentUp" class="nb-arrow-down sort small"></i>
+  </div>
+  <div class="col d-flex align-items-center text-muted d-flex">
+    <span class="text-secondary mr-1">Status</span>
+    <i *ngIf="isStatusUp" (click)="onSortStatus('asc');isStatusUp = !isStatusUp" class="nb-arrow-up sort small"></i>
+    <i *ngIf="!isStatusUp" (click)="onSortStatus('desc');isStatusUp = !isStatusUp" class="nb-arrow-down sort small"></i>
+  </div>
+  <div class="col d-flex align-items-center text-muted d-flex">
+    <span class="text-secondary mr-1">Payment</span>
+    <i *ngIf="isStatusUp" (click)="onSortStatus('asc');isStatusUp = !isStatusUp" class="nb-arrow-up sort small"></i>
+    <i *ngIf="!isStatusUp" (click)="onSortStatus('desc');isStatusUp = !isStatusUp" class="nb-arrow-down sort small"></i>
+  </div>
+  <div class="col-1"></div>
+</div>

@@ -1,0 +1,15 @@
+@import '../../../../../../@theme/styles/themes'; 
+@include nb-install-component() {
+    .reservation:not(:last-child), .border-bottom {
+        border-bottom: 1px solid;
+        border-color: nb-theme(separator);
+    }
+    .payements-header {
+        background-color: nb-theme(smart-table-bg-even);
+        color: nb-theme(social-color-github);
+        padding: 10px 0;
+    }
+    .bg-grey {
+        background-color: nb-theme(smart-table-bg-even);
+    }
+}

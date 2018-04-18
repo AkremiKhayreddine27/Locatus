@@ -1,0 +1,13 @@
+<nb-card>
+  <ngb-tabset fullWidth>
+    <ngb-tab *ngFor="let category of services" [title]="category.title">
+      <ng-template ngbTabContent>
+        <div class="row m-0 pt-4 pb-4">
+          <div *ngFor="let subCategory of category.subCategories" class="col-md-4">
+            <category [subCategory]="subCategory"></category>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</nb-card>

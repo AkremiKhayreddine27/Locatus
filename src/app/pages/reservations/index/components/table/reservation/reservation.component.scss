@@ -1,0 +1,82 @@
+@import '../../../../../../@theme/styles/themes'; 
+@include nb-install-component() {
+
+    .payement-link {
+        padding-top: 2px;
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+    .payements-header {
+        background-color: nb-theme(smart-table-bg-even);
+        color: nb-theme(social-color-github);
+        padding: 10px 0;
+    }
+
+    .alert-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+    .property-img {
+        width: 60px;
+        height: 50px;
+    }
+    .property-name {
+        color: nb-theme(color-fg-text);
+    }
+    .bg-grey {
+        background-color: nb-theme(smart-table-bg-even);
+    }
+    .reservation:hover {
+        //background-color: nb-theme(color-bg-active);
+    }
+    .fa {
+        cursor: pointer;
+    }
+    .border-top {
+        border-top: 1px solid;
+        border-color: nb-theme(separator);
+    } 
+    .border-left {
+        border-left: 1px solid;
+        border-color: nb-theme(separator);
+    }
+    .border-right {
+        border-right: 1px solid;
+        border-color: nb-theme(separator);
+    }
+    .reservation:not(:last-child), .border-bottom {
+        border-bottom: 1px solid;
+        border-color: nb-theme(separator);
+    }
+    .btn-square {
+        padding: 0.5rem 1rem !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 400;
+    }
+    .reservation-actions {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+    .btn-round {
+        height: 30px !important;
+        width: 30px !important;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-width: 1px !important;
+        color: nb-theme(card-fg-text);
+        cursor: pointer;
+    }
+    a, .btn {
+        cursor: pointer;
+    }
+}

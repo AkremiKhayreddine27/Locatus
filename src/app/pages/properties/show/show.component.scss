@@ -1,0 +1,43 @@
+@import '../../../@theme/styles/themes';
+@include nb-install-component() {
+    /deep/ .collapse-link {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        i {
+            font-size: 1.3rem;
+        }
+    }
+    /deep/ .collapse-link:hover {
+        //border: 1px solid nb-theme(color-success);
+        color: nb-theme(color-success);
+        box-shadow: nb-theme(shadow);
+    }
+    .btn-fixed-bottom {
+        right: 5px;
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        cursor: pointer !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 0 !important;
+    }
+    .btn-save {
+        right: 5px;
+        font-size: 1.4rem;
+        bottom: 70px;
+    }
+    .btn-cancel {
+        right: 5px;
+        font-size: 2rem;
+        bottom: 15px;
+    }
+}

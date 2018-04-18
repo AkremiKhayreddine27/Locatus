@@ -1,0 +1,11 @@
+<div class="m-0 row p-2 pt-4">
+  <div class="col-md-4">
+    <ngx-select [elements]="types" withActive="true" (selectChanged)="setType($event.element)"></ngx-select>
+  </div>
+  <div class="col-md-4">
+    <ngx-select [elements]="platforms" withActive="true" (selectChanged)="setPlatform($event.element)"></ngx-select>
+  </div>
+  <div class="col-md-4">
+    <ngx-select [elements]="statuses" withActive="true" (selectChanged)="setStatus($event.element)"></ngx-select>
+  </div>
+</div>

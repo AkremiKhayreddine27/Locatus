@@ -1,0 +1,16 @@
+.ion-ios-albums-outline {
+    font-size: 1.5rem; 
+}
+.property-img img{
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+    z-index: 10;
+}
+.property-img-container {
+    padding: 10px;
+    width: (100% / 3);
+    min-height: 100px;
+}

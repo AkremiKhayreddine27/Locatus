@@ -1,0 +1,91 @@
+<div class="border-bottom pb-2 d-flex">
+  <div class="col-4 p-0 pl-2 pt-3">
+    <span class="small">
+      {{ (reservation.property.title.length > 40) ? (reservation.property.title | slice:0:40)+'..' : (reservation.property.title)
+      }}
+    </span>
+  </div>
+  <div [ngSwitch]="reservation.status" class="col-5 p-0 pt-3">
+    <div class="small mb-1">
+      {{ reservation.startDate | date:'dd MMM' }} - {{ reservation.endDate | date:'dd MMM yyyy' }}
+    </div>
+    <div class="mb-2">
+      <span *ngSwitchCase="'réservé'" class="badge badge-success small">
+        {{ reservation.status }}
+      </span>
+      <span *ngSwitchCase="'provisoire'" class="badge badge-secondary small">
+        {{ reservation.status }}
+      </span>
+      <span *ngSwitchCase="'annulé'" class="badge badge-danger small">
+        {{ reservation.status }}
+      </span>
+    </div>
+    <div class="small">
+      <i class="fa fa-users mr-1"></i> {{ reservation.lodger.nbrAdultes }}
+    </div>
+  </div>
+  <div class="col-3 p-0 pt-3">
+    <div>
+      <span class="small" *ngIf="reservation.payements.length > 0">{{ reservation.payements[reservation.payements.length -1].amount }} $</span>
+    </div>
+    <div [ngSwitch]="reservation.paymentStatus">
+      <span *ngSwitchCase="'payé'" class="text-success small">{{ reservation.paymentStatus }}</span>
+      <span *ngSwitchCase="'non payé'" class="text-danger small">{{ reservation.paymentStatus }}</span>
+    </div>
+    <div>
+      <a class="small text-muted d-flex align-items-center" (click)="isPaymentCollapsed = !isPaymentCollapsed">
+        payements
+        <i class="fa small fa-chevron-down ml-1"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div [ngbCollapse]="isPaymentCollapsed">
+  <div class="row m-0">
+    <div class="col-12 d-flex justify-content-between align-items-center p-0 pt-2 pb-2 pl-4">
+      <button (click)="openNewPayment()" class="btn btn-tn btn-success btn-square">
+        <i class="fa fa-plus"></i>
+      </button>
+      <button (click)="isPaymentCollapsed = !isPaymentCollapsed" class="btn bg-transparent border-0 text-success">
+        <i class="fa fa-chevron-up"></i>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="reservation.payements.length > 0" class="row m-0">
+    <div class="col-12 border-left border-right bg-grey">
+      <div class="row payements-header border-top border-bottom">
+        <div class="col small">
+          Payer
+        </div>
+        <div class="col small">
+          Payment
+        </div>
+        <div class="col small">
+          Method
+        </div>
+      </div>
+    </div>
+    <div *ngFor="let payment of reservation.payements" class="col-12 border-left border-right bg-grey">
+      <div class="row border-bottom pb-3 pt-3">
+        <div class="col">
+          <span class="small">{{ payment.payer.firstname }} {{ payment.payer.lastname }}</span>
+        </div>
+        <div class="col">
+          <span class="badge badge-info p-1">{{ payment.status }}</span><br/>
+          <span class="small">{{ payment.amount }} $</span><br/>
+          <span class="small">{{ payment.date | date:'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="col">
+          <span class="small">{{ payment.type }}</span><br/>
+          <span class="small">{{ payment.method }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="reservation.payements.length === 0" class="row m-0">
+    <div class="col-12 bg-grey">
+      <div class="alert text-danger" role="alert">no payements</div>
+    </div>
+  </div>
+</div>
